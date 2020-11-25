@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 11:13:02 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/25 18:48:57 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/25 18:56:57 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ static void		philo_monitor(t_stock *s, t_list *p, t_list *begin)
 		while ((die = (get_curr_time() < p->tt_starvation)))
 		{
 			p = p->next;
-			usleep(100);
 		}
 	// printf("%p\n", p);
 	// printf("%u, %u\n", get_curr_time(), p->tt_starvation);
