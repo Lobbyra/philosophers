@@ -6,7 +6,7 @@
 #    By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/25 12:57:56 by jecaudal          #+#    #+#              #
-#    Updated: 2020/11/26 11:57:22 by jecaudal         ###   ########.fr        #
+#    Updated: 2020/11/26 12:30:31 by jecaudal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,11 +26,12 @@ LIB_SRCS	=	../lib/print.c			\
 
 LIB_OBJS	=	$(LIB_SRCS:.c=.o)
 
-SRCS		=	./main.c		\
-				./utils.c		\
-				./philo_gen.c	\
-				./philo_life.c	\
-				./philo_debug.c
+SRCS		=	./main.c			\
+				./utils.c			\
+				./philo_gen.c		\
+				./philo_life.c		\
+				./philo_debug.c		\
+				./philo_monitor.c
 
 CC			=	gcc
 

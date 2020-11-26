@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 11:23:13 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/25 16:17:01 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/26 12:31:00 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct		s_list
 t_list	*lstnew(t_stock *s, t_mutex *forks, t_uint philo_pos);
 t_list	*philo_gen(t_stock *s);
 
+void		philo_monitor(t_stock *s, t_list *p, t_list *begin);
 void		philo_debug(t_list *begin, int n_philos);
 
 # define ERR_MUTEX_INIT "ERROR: A mutex init failed. fatal error.\n"

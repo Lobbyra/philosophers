@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 11:13:02 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/26 11:54:30 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/26 12:30:15 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,36 +54,6 @@ static int		philo_launch(t_list *philos, t_uint n_philo)
 		i++;
 	}
 	return (0);
-}
-
-static void		philo_monitor(t_stock *s, t_list *p, t_list *begin)
-{
-	t_bool	die;
-	t_uchar n_ate;
-	t_uchar n_philos;
-
-	n_ate = 0;
-	n_philos = s->n_philo;
-	if (s->is_n_meals == TRUE)
-		while (n_ate < n_philos && (die = (get_curr_time() < p->tt_starvation)))
-		{
-			if (p->to_eat == 0)
-				n_ate++;
-			else
-				n_ate = 0;
-			p = p->next;
-		}
-	else
-		while ((die = (get_curr_time() < p->tt_starvation)))
-			p = p->next;
-	if (die == FALSE)
-		print(get_time(p->tt_start) / 1000, p->philo_pos, EVENT_DIED);
-	while (begin->philo_pos != n_philos)
-	{
-		begin->alive = FALSE;
-		begin = begin->next;
-	}
-	begin->alive = FALSE;
 }
 
 int				main(int argc, char **argv)
