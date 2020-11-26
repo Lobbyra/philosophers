@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 11:13:02 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/25 18:56:57 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/26 11:54:30 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,7 @@ static int		philo_launch(t_list *philos, t_uint n_philo)
 	while (curr->next && i < n_philo)
 	{
 		gettimeofday(&(curr->tt_start), NULL);
-		philos->tt_starvation = get_curr_time() + philos->time_to_die * 1000;
-		// printf("%u\n", philos->tt_starvation);
+		curr->tt_starvation = get_curr_time() + philos->time_to_die * 1000;
 		if (pthread_create(&philos->th, NULL, &philo_life, curr))
 			break ;
 		curr = curr->next;
@@ -65,7 +64,7 @@ static void		philo_monitor(t_stock *s, t_list *p, t_list *begin)
 
 	n_ate = 0;
 	n_philos = s->n_philo;
-	if (p->to_eat > 0)
+	if (s->is_n_meals == TRUE)
 		while (n_ate < n_philos && (die = (get_curr_time() < p->tt_starvation)))
 		{
 			if (p->to_eat == 0)
@@ -76,11 +75,7 @@ static void		philo_monitor(t_stock *s, t_list *p, t_list *begin)
 		}
 	else
 		while ((die = (get_curr_time() < p->tt_starvation)))
-		{
 			p = p->next;
-		}
-	// printf("%p\n", p);
-	// printf("%u, %u\n", get_curr_time(), p->tt_starvation);
 	if (die == FALSE)
 		print(get_time(p->tt_start) / 1000, p->philo_pos, EVENT_DIED);
 	while (begin->philo_pos != n_philos)

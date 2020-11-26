@@ -6,7 +6,7 @@
 #    By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/25 12:57:56 by jecaudal          #+#    #+#              #
-#    Updated: 2020/11/25 14:27:54 by jecaudal         ###   ########.fr        #
+#    Updated: 2020/11/26 11:57:22 by jecaudal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ CFLAGS		+=	-Wall -Wextra -Werror -pthread -I ../lib
 all			:	$(NAME)
 
 $(NAME)		:	$(OBJS) $(LIB_OBJS)
-				$(CC) -o $(NAME) -fsanitize=address $(CFLAGS) $(OBJS) $(LIB_OBJS)
+				$(CC) -o $(NAME) $(CFLAGS) $(OBJS) $(LIB_OBJS)
 
 clean		:
 				rm -rf $(OBJS)

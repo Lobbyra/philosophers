@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 14:44:49 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/25 18:20:58 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/26 11:43:05 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 static t_bool	take_forks(t_list *philo)
 {
 	pthread_mutex_lock(philo->fork1);
-	print(get_time(philo->tt_start) / 1000, philo->philo_pos, EVENT_FORK);
 	pthread_mutex_lock(philo->fork2);
+	print(get_time(philo->tt_start) / 1000, philo->philo_pos, EVENT_FORK);
 	print(get_time(philo->tt_start) / 1000, philo->philo_pos, EVENT_FORK);
 	return (TRUE);
 }
@@ -31,6 +31,8 @@ static t_bool	p_eat(t_list *philo)
 	usleep(philo->time_to_eat * ONE_MILLISECOND);
 	pthread_mutex_unlock(philo->fork1);
 	pthread_mutex_unlock(philo->fork2);
+	if (philo->to_eat == 0)
+		return (FALSE);
 	return (philo->alive);
 }
 
