@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 12:19:28 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/26 15:06:54 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/27 15:19:24 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,16 @@ static void		destroy(t_stock *stock, t_list *philos)
 
 static int		philo_launch(t_list *philos, t_uint n_philo)
 {
-	t_uint i;
-	t_list *curr;
+	t_uint		i;
+	t_list		*curr;
+	t_timeval	tt_start;
 
 	i = 0;
 	curr = philos;
+	gettimeofday(&tt_start, NULL);
 	while (curr->next && i < n_philo)
 	{
-		gettimeofday(&(curr->tt_start), NULL);
+		curr->tt_start = tt_start;
 		curr->tt_starvation = get_curr_time() + philos->time_to_die * 1000;
 		if (pthread_create(&philos->th, NULL, &philo_life, curr))
 			break ;

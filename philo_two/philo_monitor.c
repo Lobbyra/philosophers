@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 12:23:11 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/26 15:09:05 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/27 16:41:52 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static t_bool	monitor_inf(t_list *p)
 
 	while ((died = (get_curr_time() < p->tt_starvation)))
 		p = p->next;
+	printf("%u, %u\n", get_curr_time(), p->tt_starvation);
 	return (died);
 }
 

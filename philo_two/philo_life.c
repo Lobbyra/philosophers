@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 14:44:49 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/26 15:12:39 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/27 16:44:11 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 static t_bool	take_forks(t_list *philo)
 {
 	sem_wait(philo->forks);
-	sem_wait(philo->forks);
 	print(get_time(philo->tt_start) / 1000, philo->philo_pos, EVENT_FORK);
+	sem_wait(philo->forks);
 	print(get_time(philo->tt_start) / 1000, philo->philo_pos, EVENT_FORK);
 	return (TRUE);
 }
@@ -59,7 +59,8 @@ void			*philo_life(void *philo)
 	{
 		if (i == 3)
 			i = 0;
-		i++;
+		else
+			i++;
 	}
 	return (NULL);
 }

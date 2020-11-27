@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/11/25 12:57:56 by jecaudal          #+#    #+#              #
-#    Updated: 2020/11/27 16:51:48 by jecaudal         ###   ########.fr        #
+#    Created: 2020/11/26 16:24:46 by jecaudal          #+#    #+#              #
+#    Updated: 2020/11/27 15:43:35 by jecaudal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	philo_one
+NAME		=	philo_three
 
 LIB_SRCS	=	../lib/print.c			\
 				../lib/l_atoi.c			\
@@ -27,20 +27,20 @@ LIB_SRCS	=	../lib/print.c			\
 LIB_OBJS	=	$(LIB_SRCS:.c=.o)
 
 SRCS		=	./main.c			\
+				./ripper.c			\
 				./lst_new.c			\
 				./philo_gen.c		\
 				./philo_life.c		\
-				./philo_debug.c		\
 				./philo_monitor.c
-
-CC			=	gcc
-
-OBJS		=	$(SRCS:.c=.o)
 
 CFLAGS		+=	-Wall -Wextra -Werror -pthread -I ../lib
 
+CC			=	gcc
+
 %.o : %.c
 	$(CC) $(CFLAGS) $< -c
+
+OBJS		=	$(SRCS:.c=.o)
 
 all			:	$(NAME)
 
@@ -49,6 +49,7 @@ $(NAME)		:	$(OBJS) $(LIB_OBJS)
 
 asan		:	$(OBJS) $(LIB_OBJS)
 				$(CC) -o $(NAME) -fsanitize=address $(CFLAGS) $(OBJS) $(LIB_OBJS)
+
 
 clean		:
 				rm -rf $(OBJS)

@@ -5,17 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/24 14:44:49 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/27 15:41:00 by jecaudal         ###   ########.fr       */
+/*   Created: 2020/11/26 15:55:01 by jecaudal          #+#    #+#             */
+/*   Updated: 2020/11/27 14:25:15 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo_one.h"
+#include "philo_three.h"
 
 static t_bool	take_forks(t_list *philo)
 {
-	pthread_mutex_lock(philo->fork1);
-	pthread_mutex_lock(philo->fork2);
+	sem_wait(philo->forks);
+	sem_wait(philo->forks);
 	print(get_time(philo->tt_start) / 1000, philo->philo_pos, EVENT_FORK);
 	print(get_time(philo->tt_start) / 1000, philo->philo_pos, EVENT_FORK);
 	return (TRUE);
@@ -29,8 +29,8 @@ static t_bool	p_eat(t_list *philo)
 		philo->to_eat--;
 	print(get_time(philo->tt_start) / 1000, philo->philo_pos, EVENT_EAT);
 	usleep(philo->time_to_eat * ONE_MILLISECOND);
-	pthread_mutex_unlock(philo->fork1);
-	pthread_mutex_unlock(philo->fork2);
+	sem_post(philo->forks);
+	sem_post(philo->forks);
 	if (philo->to_eat == 0)
 		return (FALSE);
 	return (philo->alive);
@@ -62,5 +62,6 @@ void			*philo_life(void *philo)
 		else
 			i++;
 	}
+	exit(0);
 	return (NULL);
 }

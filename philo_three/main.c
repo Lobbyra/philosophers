@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/24 11:13:02 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/27 15:18:32 by jecaudal         ###   ########.fr       */
+/*   Created: 2020/11/26 15:23:32 by jecaudal          #+#    #+#             */
+/*   Updated: 2020/11/27 15:18:12 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo_one.h"
+#include "philo_three.h"
 
 static int		panic_main(t_stock *stock)
 {
@@ -28,12 +28,10 @@ static void		destroy(t_stock *stock, t_list *philos)
 	{
 		prev = curr;
 		curr = prev->next;
-		pthread_mutex_destroy(prev->fork1);
 		free(prev);
 	}
-	pthread_mutex_destroy(curr->fork1);
+	sem_close(curr->forks);
 	free(curr);
-	free(philos->fork2);
 	free(stock);
 }
 
@@ -49,9 +47,13 @@ static int		philo_launch(t_list *philos, t_uint n_philo)
 	while (curr->next && i < n_philo)
 	{
 		curr->tt_start = tt_start;
-		curr->tt_starvation = get_curr_time() + philos->time_to_die * 1000;
-		if (pthread_create(&philos->th, NULL, &philo_life, curr))
-			break ;
+		if ((curr->pid = fork()) == 0)
+		{
+			curr->tt_starvation = get_curr_time() + curr->time_to_die * 1000;
+			if (pthread_create(&curr->ripper, NULL, &ripper, curr))
+				break ;
+			philo_life(curr);
+		}
 		curr = curr->next;
 		i++;
 	}
@@ -69,7 +71,7 @@ int				main(int argc, char **argv)
 		return (panic_main(stock));
 	if (philo_launch(philos, stock->n_philo))
 		return (panic_main(stock));
-	philo_monitor(stock, philos, philos);
+	philo_monitor(stock, philos);
 	destroy(stock, philos);
 	return (0);
 }
