@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 15:38:49 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/27 14:51:17 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/12/01 16:08:37 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	*ripper(void *philo_ptr)
 	sem_wait(philo->print);
 	if (died == FALSE)
 		print(get_time(philo->tt_start) / 1000, philo->philo_pos, EVENT_DIED);
+	free(philo_ptr);
 	exit(died);
 	return (NULL);
 }

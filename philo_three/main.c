@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 15:23:32 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/12/01 12:07:51 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/12/01 16:05:45 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,10 @@ static void		destroy(t_stock *stock, t_list *philos)
 	{
 		prev = curr;
 		curr = prev->next;
+		free(prev);
 	}
 	sem_close(curr->forks);
+	sem_close(curr->print);
 	free(curr);
 	free(stock);
 }

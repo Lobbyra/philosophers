@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 11:13:02 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/12/01 10:56:43 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/12/01 15:51:20 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,10 @@ static void		destroy(t_stock *stock, t_list *philos)
 		prev = curr;
 		curr = prev->next;
 		pthread_mutex_destroy(prev->fork1);
-		// free(prev);
+		pthread_detach(prev->th);
 	}
 	pthread_mutex_destroy(curr->fork1);
+	pthread_detach(curr->th);
 	free(curr);
 	free(philos->fork2);
 	free(stock);
@@ -50,7 +51,7 @@ static int		philo_launch(t_list *philos, t_uint n_philo)
 	{
 		curr->tt_start = tt_start;
 		curr->tt_starvation = get_curr_time() + philos->time_to_die * 1000;
-		if (pthread_create(&philos->th, NULL, &philo_life, curr))
+		if (pthread_create(&curr->th, NULL, &philo_life, curr))
 			break ;
 		curr = curr->next;
 		i++;

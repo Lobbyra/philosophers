@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 15:21:40 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/12/01 12:43:10 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/12/01 16:07:35 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ t_list	*philo_gen(t_stock *s);
 
 void		philo_monitor(t_stock *s, t_list *p);
 void		philo_debug(t_list *begin, int n_philos);
+void		print_sem(t_uint time, t_list *philo, char *event);
+
 
 void	*ripper(void *philo_ptr);
 
