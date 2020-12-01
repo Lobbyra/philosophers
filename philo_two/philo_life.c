@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 14:44:49 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/12/01 12:41:53 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/12/01 16:42:57 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ static t_bool	take_forks(t_list *philo)
 static t_bool	p_eat(t_list *philo)
 {
 	philo->tt_starvation = get_curr_time() + (philo->time_to_die * 1000);
-	// printf("%u -> %u\n", philo->philo_pos, philo->tt_starvation);
 	if (philo->to_eat > 0)
 		philo->to_eat--;
 	print(get_time(philo->tt_start) / 1000, philo->philo_pos, EVENT_EAT);
