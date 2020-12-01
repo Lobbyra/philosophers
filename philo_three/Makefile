@@ -6,7 +6,7 @@
 #    By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/26 16:24:46 by jecaudal          #+#    #+#              #
-#    Updated: 2020/12/01 15:32:46 by jecaudal         ###   ########.fr        #
+#    Updated: 2020/12/01 18:22:37 by jecaudal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,9 +38,6 @@ CFLAGS		+=	-Wall -Wextra -Werror -pthread -I ../lib
 
 CC			=	gcc
 
-%.o : %.c
-	$(CC) $(CFLAGS) $< -c
-
 OBJS		=	$(SRCS:.c=.o)
 
 all			:	$(NAME)
@@ -53,7 +50,7 @@ asan		:	$(OBJS) $(LIB_OBJS)
 
 
 clean		:
-				rm -rf $(OBJS)
+				rm -rf $(OBJS) $(LIB_OBJS)
 
 fclean		:	clean
 				rm -f $(NAME)
