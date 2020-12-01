@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 11:13:02 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/27 15:18:32 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/12/01 10:56:43 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void		destroy(t_stock *stock, t_list *philos)
 		prev = curr;
 		curr = prev->next;
 		pthread_mutex_destroy(prev->fork1);
-		free(prev);
+		// free(prev);
 	}
 	pthread_mutex_destroy(curr->fork1);
 	free(curr);

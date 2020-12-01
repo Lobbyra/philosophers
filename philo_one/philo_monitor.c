@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 12:30:03 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/27 16:40:07 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/12/01 12:47:15 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static t_bool	monitor_meals(t_list *p, int n_p)
 		else
 			n_ate = 0;
 		p = p->next;
+		usleep(1);
 	}
 	return (died);
 }
@@ -34,7 +35,10 @@ static t_bool	monitor_inf(t_list *p)
 	t_bool	died;
 
 	while ((died = (get_curr_time() < p->tt_starvation)))
+	{
 		p = p->next;
+		usleep(1);
+	}
 	return (died);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 15:21:40 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/27 14:11:31 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/12/01 12:43:10 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct		s_list
 	sem_t			*print;
 	struct s_list	*next;
 	t_bool			alive;
+	t_uint			n_philo;
 	t_uint			time_to_eat;
 	t_uint			time_to_die;
 	t_uint			time_to_sleep;

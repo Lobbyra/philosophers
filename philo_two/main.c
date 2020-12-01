@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 12:19:28 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/27 15:19:24 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/12/01 10:59:58 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ static int		philo_launch(t_list *philos, t_uint n_philo)
 	while (curr->next && i < n_philo)
 	{
 		curr->tt_start = tt_start;
-		curr->tt_starvation = get_curr_time() + philos->time_to_die * 1000;
-		if (pthread_create(&philos->th, NULL, &philo_life, curr))
+		curr->tt_starvation = get_curr_time() + curr->time_to_die * 1000;
+		if (pthread_create(&curr->th, NULL, &philo_life, curr))
 			break ;
 		curr = curr->next;
 		i++;

@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 15:55:01 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/27 14:25:15 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/12/01 12:43:00 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ static t_bool	p_sleep(t_list *philo)
 static t_bool	p_think(t_list *philo)
 {
 	print(get_time(philo->tt_start) / 1000, philo->philo_pos, EVENT_THINK);
+	if (philo->n_philo % 2)
+		usleep(philo->time_to_sleep * 999);
 	return (philo->alive);
 }
 

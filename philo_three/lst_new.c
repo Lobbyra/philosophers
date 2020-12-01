@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 15:20:33 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/26 16:28:52 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/12/01 12:43:23 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_list	*lstnew(t_stock *s, sem_t *forks, sem_t *print, t_uint philo_pos)
 	new->alive = TRUE;
 	new->next = NULL;
 	new->philo_pos = 1;
+	new->n_philo = s->n_philo;
 	new->time_to_eat = s->tt_eat;
 	new->time_to_die = s->tt_die;
 	new->time_to_sleep = s->tt_sleep;

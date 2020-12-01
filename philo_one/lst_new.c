@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   lst_new.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 11:57:01 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/25 18:18:58 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/12/01 12:46:01 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_list	*lstnew(t_stock *s, t_mutex *forks, t_uint philo_pos)
 	new->alive = 1;
 	new->next = NULL;
 	new->philo_pos = 1;
+	new->n_philo = s->n_philo;
 	new->time_to_eat = s->tt_eat;
 	new->time_to_die = s->tt_die;
 	new->time_to_sleep = s->tt_sleep;
