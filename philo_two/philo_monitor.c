@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 12:23:11 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/12/02 10:37:25 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/12/02 10:59:36 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ static t_bool	monitor_meals(t_list *p, int n_p)
 		else
 			n_ate = 0;
 		p = p->next;
-		usleep(1);
 	}
 	return (died);
 }
@@ -35,10 +34,7 @@ static t_bool	monitor_inf(t_list *p)
 	t_bool	died;
 
 	while ((died = (get_curr_time() < p->tt_starvation)))
-	{
 		p = p->next;
-		usleep(1);
-	}
 	return (died);
 }
 
@@ -52,12 +48,12 @@ void			philo_monitor(t_stock *s, t_list *p, t_list *begin)
 		died = monitor_meals(p, n_philos);
 	else
 		died = monitor_inf(p);
-	if (died == FALSE)
-		print(get_time(p->tt_start) / 1000, p->philo_pos, EVENT_DIED);
 	while (begin->philo_pos != n_philos)
 	{
 		begin->alive = FALSE;
 		begin = begin->next;
 	}
 	begin->alive = FALSE;
+	if (died == FALSE)
+		print(get_time(p->tt_start) / 1000, p->philo_pos, EVENT_DIED);
 }
