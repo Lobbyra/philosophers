@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 11:15:12 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/25 14:10:14 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/12/02 10:47:53 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,22 +84,21 @@ t_stock					*parsing(int argc, char **argv);
 # define TT_SLEEP 3
 # define N_MEALS 4
 
-t_bool			l_isnum(char c);
-t_bool			is_num(char *str);
-int				l_atoi(char *str);
-t_bool			l_isspace(char c);
-void			l_strrev(char *str);
-unsigned int	l_strlen(char *str);
-int				l_strcmp(char *s1, char *s2);
-void			*l_memcpy_n(void *s1, void *s2, unsigned int n);
+t_bool					l_isnum(char c);
+t_bool					is_num(char *str);
+int						l_atoi(char *str);
+t_bool					l_isspace(char c);
+void					l_strrev(char *str);
+unsigned int			l_strlen(char *str);
+int						l_strcmp(char *s1, char *s2);
+void					*l_memcpy_n(void *s1, void *s2, unsigned int n);
 
-void	print_usage(void);
-void	print_warnings(int *args);
-void	print(t_uint time, t_uint n_philo, char *event);
-void	*parsing_panic(void *ptr, char *msg);
+void					print_usage(void);
+void					print_warnings(int *args);
+void					print(t_uint time, t_uint n_philo, char *event);
+void					*parsing_panic(void *ptr, char *msg);
 
-t_uint	get_curr_time(void);
-t_uint	get_time(t_timeval tt_start);
-
+t_uint					get_curr_time(void);
+t_uint					get_time(t_timeval tt_start);
 
 #endif

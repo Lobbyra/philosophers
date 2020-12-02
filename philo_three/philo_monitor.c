@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 16:00:57 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/27 15:17:45 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/12/02 10:43:51 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ static void	wait_philos(t_uint n_done, t_uint n_philo)
 		if (wait4(0, &status, WNOHANG, NULL))
 		{
 			if (WEXITSTATUS(status) == RET_DIED)
-				break;
+				break ;
 			else
 				n_done++;
 		}
 	}
 }
 
-static void kill_philos(t_list *p, t_uint n_philo)
+static void	kill_philos(t_list *p, t_uint n_philo)
 {
 	while (p->philo_pos != n_philo)
 	{

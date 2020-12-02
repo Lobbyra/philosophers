@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 15:20:33 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/12/01 12:43:23 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/12/02 10:46:13 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,3 @@ t_list	*lstnew(t_stock *s, sem_t *forks, sem_t *print, t_uint philo_pos)
 		new->to_eat = -1;
 	return (new);
 }
-

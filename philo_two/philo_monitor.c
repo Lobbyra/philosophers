@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 12:23:11 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/12/01 12:48:35 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/12/02 10:37:25 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,10 @@ static t_bool	monitor_inf(t_list *p)
 		p = p->next;
 		usleep(1);
 	}
-	// printf("%u, %u\n", get_curr_time(), p->tt_starvation);
 	return (died);
 }
 
-void		philo_monitor(t_stock *s, t_list *p, t_list *begin)
+void			philo_monitor(t_stock *s, t_list *p, t_list *begin)
 {
 	t_bool	died;
 	t_uchar	n_philos;

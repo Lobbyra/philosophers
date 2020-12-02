@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 15:21:40 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/12/01 16:07:35 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/12/02 10:46:01 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@
 # define RET_DIED FALSE
 
 typedef pthread_t		t_thread;
-
-void			*philo_life(void *philo);
 
 /*
 **	t_list		*next;		->	ptr to next philo
@@ -57,19 +55,20 @@ typedef struct		s_list
 	t_timeval		tt_start;
 }					t_list;
 
-# define NAME_SEM_FORKS "huiosdfuigosfhdugiofhdugis"
-# define NAME_SEM_PRINT "fdg6s4df68hs48gh64t8y4j68p"
+typedef t_bool	(*t_actions_arr)(t_list*);
 
-t_list	*lstnew(t_stock *s, sem_t *forks, sem_t *print, t_uint philo_pos);
-t_list	*philo_gen(t_stock *s);
+t_list				*lstnew(t_stock *s, sem_t *f, sem_t *print, t_uint p_pos);
+t_list				*philo_gen(t_stock *s);
 
-void		philo_monitor(t_stock *s, t_list *p);
-void		philo_debug(t_list *begin, int n_philos);
-void		print_sem(t_uint time, t_list *philo, char *event);
+void				philo_monitor(t_stock *s, t_list *p);
+void				philo_debug(t_list *begin, int n_philos);
+void				print_sem(t_uint time, t_list *philo, char *event);
 
-
-void	*ripper(void *philo_ptr);
+void				*ripper(void *philo_ptr);
+void				*philo_life(void *philo);
 
 # define ERR_MUTEX_INIT "ERROR: A mutex init failed. fatal error.\n"
+# define NAME_SEM_FORKS "huiosdfuigosfhdugiofhdugis"
+# define NAME_SEM_PRINT "fdg6s4df68hs48gh64t8y4j68p"
 
 #endif

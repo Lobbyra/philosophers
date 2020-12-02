@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 11:23:13 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/12/01 12:37:22 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/12/02 10:42:14 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 # include "philo.h"
 
-#include <semaphore.h>
-#include <pthread.h>
+# include <semaphore.h>
+# include <pthread.h>
 
 typedef pthread_t		t_thread;
 
-void			*philo_life(void *philo);
+void				*philo_life(void *philo);
 
 /*
 **	t_list		*next;		-> ptr to next philo
@@ -50,11 +50,13 @@ typedef struct		s_list
 
 # define NAME_SEM_FORKS "huiosdfuigosfhdugiofhdugis"
 
-t_list	*lstnew(t_stock *s, sem_t *forks, t_uint philo_pos);
-t_list	*philo_gen(t_stock *s);
+t_list				*lstnew(t_stock *s, sem_t *forks, t_uint philo_pos);
+t_list				*philo_gen(t_stock *s);
 
-void		philo_monitor(t_stock *s, t_list *p, t_list *begin);
-void		philo_debug(t_list *begin, int n_philos);
+typedef t_bool	(*t_actions_arr)(t_list*);
+
+void				philo_monitor(t_stock *s, t_list *p, t_list *begin);
+void				philo_debug(t_list *begin, int n_philos);
 
 # define ERR_MUTEX_INIT "ERROR: A mutex init failed. fatal error.\n"
 

@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 15:43:38 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/12/01 16:00:55 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/12/02 10:46:39 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ static int	l_numlen(int n)
 	}
 	return (count);
 }
-
 
 void		print_sem(t_uint time, t_list *philo, char *event)
 {

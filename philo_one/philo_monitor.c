@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 12:30:03 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/12/01 12:47:15 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/12/02 10:15:28 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static t_bool	monitor_inf(t_list *p)
 	return (died);
 }
 
-void		philo_monitor(t_stock *s, t_list *p, t_list *begin)
+void			philo_monitor(t_stock *s, t_list *p, t_list *begin)
 {
 	t_bool	died;
 	t_uchar	n_philos;

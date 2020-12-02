@@ -6,13 +6,13 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 15:43:38 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/25 14:06:09 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/12/02 10:48:14 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	print_usage(void)
+void		print_usage(void)
 {
 	write(1, USAGE_P1, sizeof(USAGE_P1));
 	write(1, USAGE_P2, sizeof(USAGE_P2));
@@ -63,7 +63,6 @@ static int	l_numlen(int n)
 	}
 	return (count);
 }
-
 
 void		print(t_uint time, t_uint n_philo, char *event)
 {

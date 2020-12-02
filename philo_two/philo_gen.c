@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 12:09:33 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/26 15:10:55 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/12/02 10:36:14 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_list			*philo_gen(t_stock *s)
 	sem_t	*forks;
 
 	sem_unlink(NAME_SEM_FORKS);
-	if ((forks = sem_open(NAME_SEM_FORKS, O_CREAT, 0660, s->n_philo)) == SEM_FAILED)
+	if ((forks = sem_open(NAME_SEM_FORKS, 100, 0660, s->n_philo)) == SEM_FAILED)
 		return (NULL);
 	begin = lstnew(s, forks, 1);
 	curr = begin;
