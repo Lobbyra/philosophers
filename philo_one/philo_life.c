@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 14:44:49 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/12/02 10:33:39 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/12/02 16:53:59 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void			*philo_life(void *philo)
 	static t_actions_arr	arr[4] = {take_forks, p_eat, p_sleep, p_think};
 
 	i = 0;
-	while (arr[i](philo))
+	while (((t_list*)philo)->alive && arr[i](philo))
 	{
 		if (i == 3)
 			i = 0;
