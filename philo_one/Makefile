@@ -6,7 +6,7 @@
 #    By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/25 12:57:56 by jecaudal          #+#    #+#              #
-#    Updated: 2020/12/01 18:22:44 by jecaudal         ###   ########.fr        #
+#    Updated: 2020/12/02 18:10:11 by jecaudal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,6 @@ SRCS		=	./main.c			\
 				./lst_new.c			\
 				./philo_gen.c		\
 				./philo_life.c		\
-				./philo_debug.c		\
 				./philo_monitor.c
 
 CC			=	gcc
