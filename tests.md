@@ -1,9 +1,16 @@
-# Philo 1
+# Test a effectuer sur chaque philosophes
 
 - Rester en vie et timestamps cohérent, pas de mélange.
 - [ ] 4 410 200 200 *test opti paire*
 - [ ] 5 610 200 200 *test opti impaire*
-- [ ] 50 410 200 200 *test beaucoup de philo*
+- [ ] 50 610 200 200 *test beaucoup de philo* **uniquement pour philo1**
+> Ce test est que pour philo1 car, comme les philos ont une cuillère attribuée chacun
+> cela peut poser problème en fonction de l'ordre des philosophes a commencer à manger.
+> 
+> Cet aléatoire est produit à cause de l'allocation de threads par rapport au threads
+> disponible sur le PC hote. Je penses que ce cas se produit a partir du nombre
+> de philosophers > nombre de threads disponible celon l'hote.
+- [ ] 50 410 200 200 *test beaucoup de philo* **uniquement pour philo2/3**
 
 <br />
 
