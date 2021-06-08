@@ -6,7 +6,7 @@
 
 This code explore 3 ways to solve the known philosophers problem.
 
-Cause a wrong using of usleep, this code might be unstable and not work properly. But the structure is correct.
+Cause of a wrong usage of usleep, this code might be unstable and not work properly. But the structure is correct.
 
 More about the philosophers problem: 
 
